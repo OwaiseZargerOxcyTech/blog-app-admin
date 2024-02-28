@@ -1,0 +1,17 @@
+{
+  "build": {
+    "rewrites": [],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "./index.html",
+        "initialRewrites": [
+          {
+            "source": "/(.*)",
+            "destination": "/api/*"
+          }
+        ]
+      }
+    ]
+  }
+}
