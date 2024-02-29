@@ -5,7 +5,7 @@ generator client {
 datasource db {
   provider = "postgresql"
   // url      = env("DATABASE_URL") //local
-  url = env("POSTGRES_PRISMA_URL")         //deployed
+  url = "postgres://default:VDh9ey8wJNqb@ep-mute-mountain-a4jtsn75-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require&pgbouncer=true&connect_timeout=15"       //deployed
 }
 
 model Employee {
