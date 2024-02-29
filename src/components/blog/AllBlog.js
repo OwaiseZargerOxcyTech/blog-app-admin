@@ -46,7 +46,9 @@ export default function AllBlog() {
 
   const handleGetBlogs = async (e) => {
     try {
-      const response = await axios.get("/api/get-all-blogs");
+      const response = await axios.get(
+        "/api/get-all-blogs?timestamp=${Date.now()}"
+      );
       const data = response.data;
       setBlogsData(data);
     } catch (error) {

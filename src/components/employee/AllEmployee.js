@@ -123,7 +123,9 @@ export default function AllEmployee() {
 
   const getAllEmployees = async () => {
     try {
-      const response = await axios.get("/api/get-all-employees");
+      const response = await axios.get(
+        "/api/get-all-employees?timestamp=${Date.now()}"
+      );
       const data = response.data;
       setEmployeeData(data);
     } catch (error) {
