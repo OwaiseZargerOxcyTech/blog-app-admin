@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export default async function handler(req, res) {
+export async function GET(req, res) {
   try {
     const allTutorialSubtopics = await prisma.tutorialSubtopic.findMany();
     return NextResponse.json(allTutorialSubtopics);

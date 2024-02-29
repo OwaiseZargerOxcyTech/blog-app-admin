@@ -30,20 +30,20 @@ const TutorialSubtopics = () => {
     }
   }, [content]);
 
-  // const getAllTutorials = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       "/api/get-all-tutorial-subtopics?timestamp=${Date.now()}"
-  //     );
-  //     setData(response.data);
-  //   } catch (error) {
-  //     console.error("Error fetching all tutorials:", error);
-  //   }
-  // };
+  const getAllTutorials = async () => {
+    try {
+      const response = await axios.get(
+        "/api/get-all-tutorial-subtopics?timestamp=${Date.now()}"
+      );
+      setData(response.data);
+    } catch (error) {
+      console.error("Error fetching all tutorials:", error);
+    }
+  };
 
-  // useEffect(() => {
-  //   getAllTutorials();
-  // }, []);
+  useEffect(() => {
+    getAllTutorials();
+  }, []);
 
   const handleAddTutorial = () => {
     setOpenDialog(true);
@@ -361,29 +361,5 @@ const TutorialSubtopics = () => {
     </div>
   );
 };
-
-export async function getStaticProps() {
-  try {
-    const timestamp = Date.now();
-    const response = await axios.get(
-      `/api/get-all-tutorial-subtopics?timestamp=${timestamp}`
-    );
-    const data = response.data;
-
-    return {
-      props: {
-        data,
-      },
-      revalidate: 60, // Revalidate every 60 seconds (adjust as needed)
-    };
-  } catch (error) {
-    console.error("Error fetching tutorial subtopics:", error);
-    return {
-      props: {
-        error: "Failed to fetch tutorial subtopics",
-      },
-    };
-  }
-}
 
 export default TutorialSubtopics;
