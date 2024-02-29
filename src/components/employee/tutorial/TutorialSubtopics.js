@@ -32,8 +32,9 @@ const TutorialSubtopics = () => {
 
   const getAllTutorials = async () => {
     try {
+      const timestamp = Date.now();
       const response = await axios.get(
-        "/api/get-all-tutorial-subtopics?timestamp=${Date.now()}"
+        "/api/get-all-tutorial-subtopics?timestamp=${timestamp}"
       );
       setData(response.data);
     } catch (error) {
