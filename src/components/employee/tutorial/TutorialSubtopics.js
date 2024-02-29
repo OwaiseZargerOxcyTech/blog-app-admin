@@ -362,4 +362,28 @@ const TutorialSubtopics = () => {
   );
 };
 
+// export async function getStaticProps() {
+//   try {
+//     const timestamp = Date.now();
+//     const response = await axios.get(
+//       `/api/get-all-tutorial-subtopics?timestamp=${timestamp}`
+//     );
+//     const data = response.data;
+
+//     return {
+//       props: {
+//         data,
+//       },
+//       revalidate: 60, // Revalidate every 60 seconds (adjust as needed)
+//     };
+//   } catch (error) {
+//     console.error("Error fetching tutorial subtopics:", error);
+//     return {
+//       props: {
+//         error: "Failed to fetch tutorial subtopics",
+//       },
+//     };
+//   }
+// }
+
 export default TutorialSubtopics;

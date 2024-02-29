@@ -3,12 +3,10 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function GET(res) {
+export default async function handler(req, res) {
   try {
     const allTutorialSubtopics = await prisma.tutorialSubtopic.findMany();
-    const response = NextResponse.json(allTutorialSubtopics);
-    response.headers.set("Cache-Control", "no-store");
-    return response;
+    return NextResponse.json(allTutorialSubtopics);
   } catch (err) {
     console.error("Error fetching all tutorial subtopics:", err);
     return NextResponse.error("Failed to fetch tutorial subtopics", {
